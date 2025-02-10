@@ -4,11 +4,14 @@
     box-sizing: border-box;
     font-family: monospace;
 }
+html {
+    height: -webkit-fill-available;
+}
 a {
     display: block;
 }
 
-button{
+button {
     background: none;
     border: 1px solid #fe6903;
     color: #fe6903;
@@ -30,11 +33,13 @@ body {
     background: #000;
     position: relative;
     user-select: none;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
 }
 canvas {
     display: block;
-    width: 100svw;
-    height: 100svh;
+    width: 100%;
+    height: 100%;
     background: transparent;
 }
 .info {
@@ -51,7 +56,7 @@ canvas {
     width: 50px;
     height: 50px;
 }
-.logo{
+.logo {
     width: 50px;
     height: 50px;
 }

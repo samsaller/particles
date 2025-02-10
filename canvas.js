@@ -56,10 +56,8 @@ window.addEventListener("load", () => {
         game.cursor.y = e.touches[0].clientY;
     });
     window.addEventListener("touchend", (e) => {
-        e.preventDefault()
         game.cursor.x = -1000;
         game.cursor.y = -1000;
-
     });
     window.addEventListener("resize", (e) => {
         canvas.width = window.innerWidth;
