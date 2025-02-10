@@ -45,7 +45,12 @@ window.addEventListener("load", () => {
         game.cursor.x = e.clientX;
         game.cursor.y = e.clientY;
     });
-    window.addEventListener("resize", () => {
+    window.addEventListener("touchmove", (e) => {
+        console.log(e);
+        game.cursor.x = e.touches[0].clientX;
+        game.cursor.y = e.touches[0].clientY;
+    });
+    window.addEventListener("resize", (e) => {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
         game.width = canvas.width;
