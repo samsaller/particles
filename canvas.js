@@ -41,14 +41,25 @@ window.addEventListener("load", () => {
         game.draw(ctx);
         requestAnimationFrame(animate);
     }
+
     window.addEventListener("mousemove", (e) => {
         game.cursor.x = e.clientX;
         game.cursor.y = e.clientY;
     });
+    window.addEventListener("mouseout", (e) => {
+        game.cursor.x = -1000;
+        game.cursor.y = -1000;
+    });
     window.addEventListener("touchmove", (e) => {
-        console.log(e);
+        e.preventDefault()
         game.cursor.x = e.touches[0].clientX;
         game.cursor.y = e.touches[0].clientY;
+    });
+    window.addEventListener("touchend", (e) => {
+        e.preventDefault()
+        game.cursor.x = -1000;
+        game.cursor.y = -1000;
+
     });
     window.addEventListener("resize", (e) => {
         canvas.width = window.innerWidth;
@@ -68,11 +79,11 @@ window.addEventListener("load", () => {
         }
     });
 
-    let cursorToggler = document.getElementById("toggleCursor");
-
+    const cursorToggler = document.getElementById("toggleCursor");
     cursorToggler.addEventListener("click", () => {
         game.cursor.enabled = !game.cursor.enabled;
         cursorToggler.innerHTML = "Cursor: " + game.cursor.enabled;
     });
+
     animate(0);
 });
