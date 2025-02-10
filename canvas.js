@@ -10,7 +10,7 @@ window.addEventListener("load", () => {
         constructor(width, height) {
             this.width = width;
             this.height = height;
-            this.cursor = { x: -100, y: -100, enabled: true};
+            this.cursor = { x: -100, y: -100, enabled: true };
             this.particles = new Particles(this, 100);
             this.nonVisibleWidth = () => {
                 return this.width + 5;
@@ -52,18 +52,18 @@ window.addEventListener("load", () => {
         game.height = canvas.height;
     });
     window.addEventListener("click", (e) => {
-        if(e.target.tagName === "CANVAS"){
+        if (e.target.tagName === "CANVAS") {
             game.particles.add(10);
         }
     });
     window.addEventListener("contextmenu", (e) => {
-        if(e.target.tagName === "CANVAS"){
+        if (e.target.tagName === "CANVAS") {
             e.preventDefault();
             game.particles.remove(10);
         }
     });
 
-    let cursorToggler = document.getElementById("toggleCursor")
+    let cursorToggler = document.getElementById("toggleCursor");
 
     cursorToggler.addEventListener("click", () => {
         game.cursor.enabled = !game.cursor.enabled;

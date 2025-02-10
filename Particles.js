@@ -147,14 +147,14 @@ export class Particles {
                 const cdy = particle.y - this.game.cursor.y;
                 const cdistance = Math.sqrt(cdx * cdx + cdy * cdy);
 
-                if (cdistance <= this.connectRadius*2) {
-                    const fullPart = this.connectRadius*2 / 1.5;
+                if (cdistance <= this.connectRadius * 2) {
+                    const fullPart = (this.connectRadius * 2) / 1.5;
                     const alpha =
                         cdistance <= fullPart
                             ? 1
                             : 1 -
                               (cdistance - fullPart) /
-                                  (this.connectRadius*2 - fullPart);
+                                  (this.connectRadius * 2 - fullPart);
                     context.beginPath();
                     context.moveTo(particle.x, particle.y);
                     context.lineTo(this.game.cursor.x, this.game.cursor.y);
