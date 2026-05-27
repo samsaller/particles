@@ -11,7 +11,7 @@ window.addEventListener("load", () => {
             this.width = width;
             this.height = height;
             this.cursor = { x: -100, y: -100, enabled: true };
-            this.particles = new Particles(this, 100);
+            this.particles = new Particles(this, 200);
             this.nonVisibleWidth = () => {
                 return this.width + 5;
             };

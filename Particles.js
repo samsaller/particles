@@ -120,17 +120,12 @@ export class Particles {
 
             // ==draw connection line
             this.particles.forEach((particle2, index2) => {
-                const dx = particle2.x - particle.x;
-                const dy = particle2.y - particle.y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
+                const dx = particle2.x - particle.x; // ==distance between particles by x
+                const dy = particle2.y - particle.y; // ==distance between particles by y
+                const distance = Math.sqrt(dx * dx + dy * dy); // ==actual distance
                 if (distance <= this.connectRadius && index !== index2) {
-                    const fullPart = this.connectRadius / 1.5;
-                    const alpha =
-                        distance <= fullPart
-                            ? 1
-                            : 1 -
-                              (distance - fullPart) /
-                                  (this.connectRadius - fullPart);
+                    const fullPart = this.connectRadius / 1.5; // ==when distance is less than this, the line is fully visible
+                    const alpha = distance <= fullPart ? 1 : 1 - (distance - fullPart) / (this.connectRadius - fullPart);
                     context.beginPath();
                     context.moveTo(particle.x, particle.y);
                     context.lineTo(
